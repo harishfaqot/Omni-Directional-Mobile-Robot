@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="Rice" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<transmission name="Revolute 9_tran">
+<transmission name="${prefix}Revolute 9_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 9">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -12,7 +12,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 10_tran">
+<transmission name="${prefix}Revolute 10_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 10">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -23,7 +23,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 11_tran">
+<transmission name="${prefix}Revolute 11_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 11">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -34,7 +34,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 12_tran">
+<transmission name="${prefix}Revolute 12_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 12">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -45,7 +45,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 13_tran">
+<transmission name="${prefix}Revolute 13_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 13">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -56,7 +56,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 14_tran">
+<transmission name="${prefix}Revolute 14_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 14">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -67,7 +67,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 15_tran">
+<transmission name="${prefix}Revolute 15_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 15">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -78,7 +78,7 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolute 16_tran">
+<transmission name="${prefix}Revolute 16_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="Revolute 16">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
