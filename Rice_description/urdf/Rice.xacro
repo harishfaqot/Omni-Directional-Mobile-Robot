@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<robot name="Rice" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Rice_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Rice_description)/urdf/Rice.trans" />
+<xacro:include filename="$(find Rice_description)/urdf/Rice.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.38402832945911597 0.5082275557152091 0.5479870886885508" rpy="0 0 0"/>
+    <mass value="111.52248073403698"/>
+    <inertia ixx="19.278738" iyy="29.802061" izz="11.892444" ixy="0.004947" iyz="-0.077376" ixz="-0.058745"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="leg_br_1">
+  <inertial>
+    <origin xyz="0.02067495895251803 -0.42960566115027676 -0.059489197402857075" rpy="0 0 0"/>
+    <mass value="19.428196282242897"/>
+    <inertia ixx="0.69198" iyy="0.118365" izz="0.64895" ixy="-0.001759" iyz="0.04479" ixz="0.016967"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.77 -0.465 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.77 -0.465 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="leg_bl_1">
+  <inertial>
+    <origin xyz="-0.020209424216131984 -0.4348060760743736 -0.05818411411396296" rpy="0 0 0"/>
+    <mass value="19.9033372562808"/>
+    <inertia ixx="0.720932" iyy="0.120784" izz="0.676639" ixy="0.003917" iyz="0.050773" ixz="-0.017565"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.465 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.465 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="leg_fr_1">
+  <inertial>
+    <origin xyz="0.020209424438183965 -0.4348060753188833 0.058184114296319" rpy="0 0 0"/>
+    <mass value="19.90333719348541"/>
+    <inertia ixx="0.720932" iyy="0.120784" izz="0.676639" ixy="-0.003917" iyz="-0.050773" ixz="-0.017565"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.77 -0.465 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.77 -0.465 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="leg_fl_1">
+  <inertial>
+    <origin xyz="-0.020233756052453953 -0.43473344154932647 0.05820262908150501" rpy="0 0 0"/>
+    <mass value="19.897003188386865"/>
+    <inertia ixx="0.72058" iyy="0.120724" izz="0.676271" ixy="0.003807" iyz="-0.050689" ixz="0.017537"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.465 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.465 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/leg_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_br_1">
+  <inertial>
+    <origin xyz="-0.0036583592135001064 -8.326672684688674e-17 -7.771561172376096e-15" rpy="0 0 0"/>
+    <mass value="65.80472593736363"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.863 0.205 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.863 0.205 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fr_1">
+  <inertial>
+    <origin xyz="-0.0036583592134961096 -8.326672684688674e-17 1.0372073678943815e-14" rpy="0 0 0"/>
+    <mass value="65.80472593736363"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.863 0.205 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.863 0.205 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_bl_1">
+  <inertial>
+    <origin xyz="0.0020000000000000018 -8.326672684688674e-17 -7.771561172376096e-15" rpy="0 0 0"/>
+    <mass value="65.80472593736363"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.093 0.205 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.093 0.205 -1.09" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_fl_1">
+  <inertial>
+    <origin xyz="0.002000000000003818 -8.326672684688674e-17 4.429351555892799e-15" rpy="0 0 0"/>
+    <mass value="65.80472593736363"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.093 0.205 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.093 0.205 0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Rice_description/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 9" type="continuous">
+  <origin xyz="0.77 0.465 1.09" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="leg_br_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 10" type="continuous">
+  <origin xyz="0.0 0.465 1.09" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="leg_bl_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 11" type="continuous">
+  <origin xyz="0.77 0.465 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="leg_fr_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 12" type="continuous">
+  <origin xyz="0.0 0.465 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="leg_fl_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 13" type="continuous">
+  <origin xyz="0.093 -0.67 0.0" rpy="0 0 0"/>
+  <parent link="leg_br_1"/>
+  <child link="wheel_br_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 14" type="continuous">
+  <origin xyz="0.093 -0.67 0.0" rpy="0 0 0"/>
+  <parent link="leg_fr_1"/>
+  <child link="wheel_fr_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 15" type="continuous">
+  <origin xyz="-0.093 -0.67 0.0" rpy="0 0 0"/>
+  <parent link="leg_bl_1"/>
+  <child link="wheel_bl_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 16" type="continuous">
+  <origin xyz="-0.093 -0.67 -0.0" rpy="0 0 0"/>
+  <parent link="leg_fl_1"/>
+  <child link="wheel_fl_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+</robot>
