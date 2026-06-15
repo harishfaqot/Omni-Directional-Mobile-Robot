@@ -1,57 +1,64 @@
-import launch
-from launch.substitutions import Command, LaunchConfiguration
-import launch_ros
-from launch.conditions import IfCondition
+from launch_ros.actions import Node
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from launch.conditions import IfCondition, UnlessCondition
+import xacro
 import os
-from launch_ros.descriptions import ParameterValue
+from ament_index_python.packages import get_package_share_directory
+
 
 def generate_launch_description():
-    pkg_share = launch_ros.substitutions.FindPackageShare(package='Rice_description').find('Rice_description')
-    default_model_path = os.path.join(pkg_share, 'urdf/Rice.xacro')
-    default_rviz_config_path = os.path.join(pkg_share, 'config/display.rviz')
-    world_path = os.path.join(pkg_share, 'worlds/room.sdf')
-    # sdf_path = os.path.join(pkg_share, 'models/urdf/Rice/model.sdf')
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    robot_state_publisher_node = launch_ros.actions.Node(
+    share_dir = get_package_share_directory('Rice_description')
+
+    xacro_file = os.path.join(share_dir, 'urdf', 'Rice.xacro')
+    robot_description_config = xacro.process_file(xacro_file)
+    robot_urdf = robot_description_config.toxml()
+
+    rviz_config_file = os.path.join(share_dir, 'config', 'display.rviz')
+
+    gui_arg = DeclareLaunchArgument(
+        name='gui',
+        default_value='True'
+    )
+
+    show_gui = LaunchConfiguration('gui')
+
+    robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        parameters=[{'use_sim_time': use_sim_time}, {'robot_description': ParameterValue(Command(['xacro ', LaunchConfiguration('model')]), value_type=str)}]
+        name='robot_state_publisher',
+        parameters=[
+            {'robot_description': robot_urdf}
+        ]
     )
-    joint_state_publisher_node = launch_ros.actions.Node(
+
+    joint_state_publisher_node = Node(
+        condition=UnlessCondition(show_gui),
         package='joint_state_publisher',
         executable='joint_state_publisher',
-        name='joint_state_publisher',
-        parameters=[{'use_sim_time': use_sim_time}],
+        name='joint_state_publisher'
     )
-    rviz_node = launch_ros.actions.Node(
+
+    joint_state_publisher_gui_node = Node(
+        condition=IfCondition(show_gui),
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui'
+    )
+
+    rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        output='screen',
-        arguments=['-d', LaunchConfiguration('rvizconfig')],
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
-    spawn_entity = launch_ros.actions.Node(
-        condition=IfCondition(use_sim_time),
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        arguments=['-entity', 'Rice', '-topic', 'robot_description'],
-        parameters=[{'use_sim_time': use_sim_time}],
+        arguments=['-d', rviz_config_file],
         output='screen'
     )
 
-    return launch.LaunchDescription([
-        launch.actions.DeclareLaunchArgument(name='use_sim_time', default_value='True',
-                                            description='Flag to enable use_sim_time'),
-        launch.actions.DeclareLaunchArgument(name='model', default_value=default_model_path,
-                                            description='Absolute path to robot urdf file'),
-        launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path,
-                                            description='Absolute path to rviz config file'),
-        launch.actions.ExecuteProcess(condition=IfCondition(use_sim_time), cmd=['gazebo', '--verbose', '-s',
-                                            'libgazebo_ros_init.so', '-s', 'libgazebo_ros_factory.so', world_path],
-                                        output='screen'),
-        joint_state_publisher_node,
+    return LaunchDescription([
+        gui_arg,
         robot_state_publisher_node,
-        spawn_entity,
-        rviz_node,
+        joint_state_publisher_node,
+        joint_state_publisher_gui_node,
+        rviz_node
     ])
