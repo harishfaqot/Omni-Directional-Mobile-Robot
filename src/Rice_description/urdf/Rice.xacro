@@ -6,9 +6,9 @@
 <xacro:include filename="$(find Rice_description)/urdf/Rice.gazebo" />
 <link name="base_link">
   <inertial>
-    <origin xyz="0.38402832945911597 0.5082275557152091 0.5479870886885508" rpy="0 0 0"/>
-    <mass value="111.52248073403698"/>
-    <inertia ixx="19.278738" iyy="29.802061" izz="11.892444" ixy="0.004947" iyz="-0.077376" ixz="-0.058745"/>
+    <origin xyz="-0.015971670540010845 -0.01298708868979309 0.9132275557142866" rpy="0 0 0"/>
+    <mass value="111.5224807340382"/>
+    <inertia ixx="19.278738" iyy="11.892444" izz="29.802061" ixy="0.058745" iyz="0.077376" ixz="0.004947"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -27,19 +27,19 @@
 
 <link name="leg_br_1">
   <inertial>
-    <origin xyz="0.02067495895251803 -0.42960566115027676 -0.059489197402857075" rpy="0 0 0"/>
-    <mass value="19.428196282242897"/>
-    <inertia ixx="0.69198" iyy="0.118365" izz="0.64895" ixy="-0.001759" iyz="0.04479" ixz="0.016967"/>
+    <origin xyz="0.020674959041296737 0.059489197285151396 -0.4296056612393746" rpy="0 0 0"/>
+    <mass value="19.428196282242922"/>
+    <inertia ixx="0.69198" iyy="0.64895" izz="0.118365" ixy="-0.016967" iyz="-0.04479" ixz="-0.001759"/>
   </inertial>
   <visual>
-    <origin xyz="-0.77 -0.465 -1.09" rpy="0 0 0"/>
+    <origin xyz="-0.37 0.555 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_br_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.77 -0.465 -1.09" rpy="0 0 0"/>
+    <origin xyz="-0.37 0.555 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_br_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -48,19 +48,19 @@
 
 <link name="leg_bl_1">
   <inertial>
-    <origin xyz="-0.020209424216131984 -0.4348060760743736 -0.05818411411396296" rpy="0 0 0"/>
-    <mass value="19.9033372562808"/>
-    <inertia ixx="0.720932" iyy="0.120784" izz="0.676639" ixy="0.003917" iyz="0.050773" ixz="-0.017565"/>
+    <origin xyz="-0.02020942421503935 0.05818411411251201 -0.4348060760754819" rpy="0 0 0"/>
+    <mass value="19.903337256280803"/>
+    <inertia ixx="0.720932" iyy="0.676639" izz="0.120784" ixy="0.017565" iyz="-0.050773" ixz="0.003917"/>
   </inertial>
   <visual>
-    <origin xyz="-0.0 -0.465 -1.09" rpy="0 0 0"/>
+    <origin xyz="0.4 0.555 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_bl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.0 -0.465 -1.09" rpy="0 0 0"/>
+    <origin xyz="0.4 0.555 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_bl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -69,19 +69,19 @@
 
 <link name="leg_fr_1">
   <inertial>
-    <origin xyz="0.020209424438183965 -0.4348060753188833 0.058184114296319" rpy="0 0 0"/>
-    <mass value="19.90333719348541"/>
-    <inertia ixx="0.720932" iyy="0.120784" izz="0.676639" ixy="-0.003917" iyz="-0.050773" ixz="-0.017565"/>
+    <origin xyz="0.020209424439251666 -0.05818411429774317 -0.43480607531996185" rpy="0 0 0"/>
+    <mass value="19.90333719348548"/>
+    <inertia ixx="0.720932" iyy="0.676639" izz="0.120784" ixy="0.017565" iyz="0.050773" ixz="-0.003917"/>
   </inertial>
   <visual>
-    <origin xyz="-0.77 -0.465 -0.0" rpy="0 0 0"/>
+    <origin xyz="-0.37 -0.535 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_fr_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.77 -0.465 -0.0" rpy="0 0 0"/>
+    <origin xyz="-0.37 -0.535 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_fr_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -90,19 +90,19 @@
 
 <link name="leg_fl_1">
   <inertial>
-    <origin xyz="-0.020233756052453953 -0.43473344154932647 0.05820262908150501" rpy="0 0 0"/>
-    <mass value="19.897003188386865"/>
-    <inertia ixx="0.72058" iyy="0.120724" izz="0.676271" ixy="0.003807" iyz="-0.050689" ixz="0.017537"/>
+    <origin xyz="-0.020233756049858553 -0.05820262908497592 -0.4347334415519548" rpy="0 0 0"/>
+    <mass value="19.897003188386847"/>
+    <inertia ixx="0.72058" iyy="0.676271" izz="0.120724" ixy="-0.017537" iyz="0.050689" ixz="0.003807"/>
   </inertial>
   <visual>
-    <origin xyz="-0.0 -0.465 -0.0" rpy="0 0 0"/>
+    <origin xyz="0.4 -0.535 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_fl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.0 -0.465 -0.0" rpy="0 0 0"/>
+    <origin xyz="0.4 -0.535 -0.87" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/leg_fl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -111,19 +111,19 @@
 
 <link name="wheel_br_1">
   <inertial>
-    <origin xyz="-0.0036583592135001064 -8.326672684688674e-17 -7.771561172376096e-15" rpy="0 0 0"/>
-    <mass value="65.80472593736363"/>
-    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    <origin xyz="-0.0036583592135003284 7.882583474838611e-15 -1.1379786002407855e-15" rpy="0 0 0"/>
+    <mass value="65.80472593736364"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.863 0.205 -1.09" rpy="0 0 0"/>
+    <origin xyz="-0.463 0.555 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.863 0.205 -1.09" rpy="0 0 0"/>
+    <origin xyz="-0.463 0.555 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_br_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -132,19 +132,19 @@
 
 <link name="wheel_fr_1">
   <inertial>
-    <origin xyz="-0.0036583592134961096 -8.326672684688674e-17 1.0372073678943815e-14" rpy="0 0 0"/>
-    <mass value="65.80472593736363"/>
-    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    <origin xyz="-0.003658359213496276 -9.43689570931383e-15 -2.498001805406602e-16" rpy="0 0 0"/>
+    <mass value="65.80472593736364"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.863 0.205 -0.0" rpy="0 0 0"/>
+    <origin xyz="-0.463 -0.535 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.863 0.205 -0.0" rpy="0 0 0"/>
+    <origin xyz="-0.463 -0.535 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_fr_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -153,19 +153,19 @@
 
 <link name="wheel_bl_1">
   <inertial>
-    <origin xyz="0.0020000000000000018 -8.326672684688674e-17 -7.771561172376096e-15" rpy="0 0 0"/>
+    <origin xyz="0.0019999999999998352 7.882583474838611e-15 -1.9984014443252818e-15" rpy="0 0 0"/>
     <mass value="65.80472593736363"/>
-    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.093 0.205 -1.09" rpy="0 0 0"/>
+    <origin xyz="0.493 0.555 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.093 0.205 -1.09" rpy="0 0 0"/>
+    <origin xyz="0.493 0.555 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_bl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -174,19 +174,19 @@
 
 <link name="wheel_fl_1">
   <inertial>
-    <origin xyz="0.002000000000003818 -8.326672684688674e-17 4.429351555892799e-15" rpy="0 0 0"/>
-    <mass value="65.80472593736363"/>
-    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+    <origin xyz="0.002000000000003721 -3.774758283725532e-15 -5.828670879282072e-16" rpy="0 0 0"/>
+    <mass value="65.80472593736361"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.093 0.205 0.0" rpy="0 0 0"/>
+    <origin xyz="0.493 -0.535 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.093 0.205 0.0" rpy="0 0 0"/>
+    <origin xyz="0.493 -0.535 -0.2" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find Rice_description)/meshes/wheel_fl_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -194,56 +194,56 @@
 </link>
 
 <joint name="Revolute 9" type="continuous">
-  <origin xyz="0.77 0.465 1.09" rpy="0 0 0"/>
+  <origin xyz="0.37 -0.555 0.87" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="leg_br_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
 <joint name="Revolute 10" type="continuous">
-  <origin xyz="0.0 0.465 1.09" rpy="0 0 0"/>
+  <origin xyz="-0.4 -0.555 0.87" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="leg_bl_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
 <joint name="Revolute 11" type="continuous">
-  <origin xyz="0.77 0.465 0.0" rpy="0 0 0"/>
+  <origin xyz="0.37 0.535 0.87" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="leg_fr_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
 <joint name="Revolute 12" type="continuous">
-  <origin xyz="0.0 0.465 0.0" rpy="0 0 0"/>
+  <origin xyz="-0.4 0.535 0.87" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="leg_fl_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
 </joint>
 
 <joint name="Revolute 13" type="continuous">
-  <origin xyz="0.093 -0.67 0.0" rpy="0 0 0"/>
+  <origin xyz="0.093 0.0 -0.67" rpy="0 0 0"/>
   <parent link="leg_br_1"/>
   <child link="wheel_br_1"/>
   <axis xyz="1.0 0.0 0.0"/>
 </joint>
 
 <joint name="Revolute 14" type="continuous">
-  <origin xyz="0.093 -0.67 0.0" rpy="0 0 0"/>
+  <origin xyz="0.093 0.0 -0.67" rpy="0 0 0"/>
   <parent link="leg_fr_1"/>
   <child link="wheel_fr_1"/>
   <axis xyz="1.0 0.0 0.0"/>
 </joint>
 
 <joint name="Revolute 15" type="continuous">
-  <origin xyz="-0.093 -0.67 0.0" rpy="0 0 0"/>
+  <origin xyz="-0.093 0.0 -0.67" rpy="0 0 0"/>
   <parent link="leg_bl_1"/>
   <child link="wheel_bl_1"/>
   <axis xyz="-1.0 0.0 0.0"/>
 </joint>
 
 <joint name="Revolute 16" type="continuous">
-  <origin xyz="-0.093 -0.67 -0.0" rpy="0 0 0"/>
+  <origin xyz="-0.093 0.0 -0.67" rpy="0 0 0"/>
   <parent link="leg_fl_1"/>
   <child link="wheel_fl_1"/>
   <axis xyz="-1.0 0.0 0.0"/>
