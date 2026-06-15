@@ -11,70 +11,70 @@
   <gravity>true</gravity>
 </gazebo>
 
-<gazebo reference="leg_br_1">
+<gazebo reference="leg_bl_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="leg_bl_1">
+<gazebo reference="leg_br_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="leg_fr_1">
+<gazebo reference="leg_fl_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="leg_fl_1">
+<gazebo reference="leg_fr_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="wheel_br_1">
+<gazebo reference="wheel_br_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="wheel_fr_1">
+<gazebo reference="wheel_fr_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="wheel_bl_1">
+<gazebo reference="wheel_fl_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="wheel_fl_1">
+<gazebo reference="wheel_bl_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="arm_1">
+<gazebo reference="arm_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
 </gazebo>
 
-<gazebo reference="solar_1">
+<gazebo reference="solar_2">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
