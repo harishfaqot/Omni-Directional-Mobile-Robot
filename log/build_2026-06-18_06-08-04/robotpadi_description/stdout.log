@@ -1,0 +1,91 @@
+running develop
+running egg_info
+creating robotpadi_description.egg-info
+writing robotpadi_description.egg-info/PKG-INFO
+writing dependency_links to robotpadi_description.egg-info/dependency_links.txt
+writing requirements to robotpadi_description.egg-info/requires.txt
+writing top-level names to robotpadi_description.egg-info/top_level.txt
+writing manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+reading manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+writing manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages/robotpadi-description.egg-link (link to .)
+
+Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description
+running symlink_data
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/ament_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/ament_index/resource_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/ament_index/resource_index/packages
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/resource/robotpadi_description -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/ament_index/resource_index/packages
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/package.xml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/launch/display.launch.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/launch/gazebo.launch.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/launch/robot.launch.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/urdf/robotpadi.ros2control -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/urdf/robotpadi.gazebo -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/urdf/robotpadi.xacro -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/urdf/materials.xacro -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/base_link.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/bl_wheel_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/fr_wheel_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/fr_steering_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/br_steering_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/fl_steering_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/arm_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/panel_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/fl_wheel_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/br_wheel_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/meshes/bl_steering_1.stl -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/meshes
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/config
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/config/display.rviz -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/config
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/config/controllers.yaml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/config
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/config/ros_gz_bridge_gazebo.yaml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/config
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/config/gazebo.rviz -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/config
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/worlds
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/worlds/worlds.sdf -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/worlds
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/model.sdf -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/model.config -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/thumbnails/2.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/thumbnails/1.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/thumbnails
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/meshes
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/meshes/heightmap.dae -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/meshes
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/materials
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/materials/textures
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/materials/textures/soil_sand_0045_01.jpg -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/materials/textures
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/materials/scripts
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/sand_heightmap/materials/scripts/sand.material -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/sand_heightmap/materials/scripts
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/model.sdf -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/model-1_4.sdf -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/model.config -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/thumbnails/3.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/thumbnails/5.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/thumbnails/4.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/thumbnails/2.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/thumbnails/1.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/thumbnails
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/materials
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/materials/textures
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/materials/textures/mud_soft_leaves.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/materials/textures
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/materials/scripts
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/Mud_Box/materials/scripts/mud.material -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/Mud_Box/materials/scripts
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/gt_map.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/markers.csv -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/gt_map.csv -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/driving_pattern.txt -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/robot_spawner.launch.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/thumbnails/model.config -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/thumbnails
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/thumbnails/generated.world -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/thumbnails
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/materials
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/materials/textures
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/materials/textures/virtual_maize_field_heightmap.png -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/materials/textures
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/materials/script
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize/materials/script/maize.material -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize/materials/script

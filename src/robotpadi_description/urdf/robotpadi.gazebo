@@ -4,6 +4,17 @@
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
 <gazebo>
+  <plugin filename="gz-sim-odometry-publisher-system"
+          name="gz::sim::systems::OdometryPublisher">
+    <odom_frame>odom</odom_frame>
+    <robot_base_frame>base_link</robot_base_frame>
+    <odom_publish_frequency>50</odom_publish_frequency>
+    <odom_topic>/model/robotpadi/odometry</odom_topic>
+    <tf_topic>/model/robotpadi/tf</tf_topic>
+  </plugin>
+</gazebo>
+
+<gazebo>
   <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
     <parameters>$(find robotpadi_description)/config/controllers.yaml</parameters>
   </plugin>

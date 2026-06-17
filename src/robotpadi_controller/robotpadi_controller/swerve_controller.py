@@ -28,7 +28,7 @@ from rclpy.executors import MultiThreadedExecutor
 
 
 # ─── Robot geometry (metres) ──────────────────────────────────────────────────
-HALF_TRACK   = 0.954/2   # Lx – half the distance between left and right wheels
+HALF_TRACK   = 0.950/2   # Lx – half the distance between left and right wheels
 HALF_BASE    = 1.090/2   # Ly – half the distance between front and rear axles
 
 # ─── Limits ───────────────────────────────────────────────────────────────────
@@ -57,11 +57,10 @@ def swerve_kinematics(vx: float, vy: float, omega: float):
     # Corner velocity contributions from rotation
     # Each corner is at (±Ly, ±Lx) in robot frame
     corners = [
-        (-Ly, -Lx),   # RR
         ( Ly,  Lx),   # FL
         (-Ly,  Lx),   # RL
         ( Ly, -Lx),   # FR
-        
+        (-Ly, -Lx),   # RR
     ]
 
     results = []
@@ -106,7 +105,7 @@ class SwerveController(Node):
         # Wheel speed signs: FL and RR are mirrored on the frame
         # Adjust for your physical motor orientations here if needed.
         # Convention used: positive = forward rotation for each wheel.
-        speed_signs = [-1, 1, 1, -1]   # matches your original sign pattern
+        speed_signs = [-1, -1, 1, 1]   # matches your original sign pattern
 
         wheel_msg    = Float64MultiArray()
         steering_msg = Float64MultiArray()

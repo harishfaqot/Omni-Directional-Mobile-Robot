@@ -4,7 +4,16 @@
 <xacro:include filename="$(find robotpadi_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.ros2control" />
 <xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.gazebo" />
-<link name="base_link">
+
+<link name="base_link"/>
+
+<joint name="base_link_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="base_robot"/>
+  <origin xyz="0 0 0.92" rpy="0 0 0"/>  <!-- Raise base_link by the offset -->
+</joint>
+
+<link name="base_robot">
   <inertial>
     <origin xyz="4.7605171811971384e-05 7.503713021135889e-06 -1.28855617148301e-05" rpy="0 0 0"/>
     <mass value="111.52248073403692"/>
@@ -15,7 +24,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -36,7 +45,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/fr_steering_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="-0.386019 -0.547995 0.04324" rpy="0 0 0"/>
@@ -57,7 +66,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/br_steering_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="-0.386019 0.542005 0.04324" rpy="0 0 0"/>
@@ -78,7 +87,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/fl_steering_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="0.383981 -0.547995 0.04324" rpy="0 0 0"/>
@@ -99,7 +108,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/bl_steering_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="yellow"/>
   </visual>
   <collision>
     <origin xyz="0.383981 0.542005 0.04324" rpy="0 0 0"/>
@@ -120,7 +129,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/br_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="-0.474019 -0.547995 0.71324" rpy="0 0 0"/>
@@ -141,7 +150,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/fl_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="-0.474019 0.542005 0.71324" rpy="0 0 0"/>
@@ -162,7 +171,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/bl_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.471981 -0.547995 0.71324" rpy="0 0 0"/>
@@ -183,7 +192,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/fr_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.471981 0.542005 0.71324" rpy="0 0 0"/>
@@ -204,7 +213,7 @@
     <geometry>
       <mesh filename="file://$(find robotpadi_description)/meshes/panel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="light_blue"/>
   </visual>
   <collision>
     <origin xyz="-0.001019 -0.002995 -0.01876" rpy="0 0 0"/>
@@ -237,28 +246,28 @@
 
 <joint name="Revolute 1" type="continuous">
   <origin xyz="0.386019 0.547995 -0.04324" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="fr_steering_1"/>
   <axis xyz="-0.0 0.0 -1.0"/>
 </joint>
 
 <joint name="Revolute 2" type="continuous">
   <origin xyz="0.386019 -0.542005 -0.04324" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="br_steering_1"/>
   <axis xyz="-0.0 0.0 -1.0"/>
 </joint>
 
 <joint name="Revolute 3" type="continuous">
   <origin xyz="-0.383981 0.547995 -0.04324" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="fl_steering_1"/>
   <axis xyz="-0.0 0.0 -1.0"/>
 </joint>
 
 <joint name="Revolute 4" type="continuous">
   <origin xyz="-0.383981 -0.542005 -0.04324" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="bl_steering_1"/>
   <axis xyz="-0.0 0.0 -1.0"/>
 </joint>
@@ -293,13 +302,13 @@
 
 <joint name="Rigid 9" type="fixed">
   <origin xyz="0.001019 0.002995 0.01876" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="panel_1"/>
 </joint>
 
 <joint name="Rigid 10" type="fixed">
   <origin xyz="0.259519 0.002995 -0.04624" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="base_robot"/>
   <child link="arm_1"/>
 </joint>
 

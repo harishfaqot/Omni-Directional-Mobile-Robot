@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="sand_heightmap">
+    <static>true</static>
+    <link name="link">
+      <collision name="ground">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://sand_heightmap/meshes/heightmap.dae</uri></mesh>
+        </geometry>
+      </collision>
+
+      <visual name="ground_sand">
+        <cast_shadows>true</cast_shadows>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://sand_heightmap/meshes/heightmap.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

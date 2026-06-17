@@ -4,3 +4,6 @@ source;share/robotpadi_description/hook/pythonpath.sh
 source;share/robotpadi_description/hook/ament_prefix_path.ps1
 source;share/robotpadi_description/hook/ament_prefix_path.dsv
 source;share/robotpadi_description/hook/ament_prefix_path.sh
+source;../../build/robotpadi_description/share/robotpadi_description/hook/pythonpath_develop.ps1
+source;../../build/robotpadi_description/share/robotpadi_description/hook/pythonpath_develop.dsv
+source;../../build/robotpadi_description/share/robotpadi_description/hook/pythonpath_develop.sh
