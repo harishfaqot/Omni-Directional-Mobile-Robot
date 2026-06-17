@@ -1,0 +1,306 @@
+<?xml version="1.0" ?>
+<robot name="robotpadi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robotpadi_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.ros2control" />
+<xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="2.4824220796767777 0.28115799017238796 1.0082275557140772" rpy="0 0 0"/>
+    <mass value="111.52248073403693"/>
+    <inertia ixx="19.278738" iyy="11.892444" izz="29.802061" ixy="0.058745" iyz="0.077376" ixz="0.004947"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_steering_1">
+  <inertial>
+    <origin xyz="0.020209174655847928 -0.05818403543565476 -0.43480607532017557" rpy="0 0 0"/>
+    <mass value="19.903337193485434"/>
+    <inertia ixx="0.720932" iyy="0.676639" izz="0.120784" ixy="0.017565" iyz="0.050773" ixz="-0.003917"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.868394 -0.829145 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fr_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.868394 -0.829145 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fr_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="br_steering_1">
+  <inertial>
+    <origin xyz="0.02067470917018399 0.05948927608269658 -0.4296056612602748" rpy="0 0 0"/>
+    <mass value="19.42819628224292"/>
+    <inertia ixx="0.69198" iyy="0.64895" izz="0.118365" ixy="-0.016967" iyz="-0.04479" ixz="-0.001759"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.868394 0.260855 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/br_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.868394 0.260855 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/br_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_steering_1">
+  <inertial>
+    <origin xyz="-0.020675208734855843 -0.059489118356931936 -0.4296056612602346" rpy="0 0 0"/>
+    <mass value="19.42819628224292"/>
+    <inertia ixx="0.69198" iyy="0.64895" izz="0.118365" ixy="-0.016967" iyz="0.04479" ixz="0.001759"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.098394 -0.829145 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fl_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.098394 -0.829145 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fl_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bl_steering_1">
+  <inertial>
+    <origin xyz="-0.020209674220515783 0.058184193161417125 -0.4348060753202152" rpy="0 0 0"/>
+    <mass value="19.903337193485434"/>
+    <inertia ixx="0.720932" iyy="0.676639" izz="0.120784" ixy="0.017565" iyz="-0.050773" ixz="0.003917"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.098394 0.260855 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/bl_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.098394 0.260855 -0.965" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/bl_steering_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="br_wheel_1">
+  <inertial>
+    <origin xyz="0.00199975021766452 7.886290126490891e-08 -9.992007221626409e-16" rpy="0 0 0"/>
+    <mass value="65.80472593736373"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.956394 0.260855 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/br_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.956394 0.260855 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/br_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fl_wheel_1">
+  <inertial>
+    <origin xyz="-0.0020002497823359278 7.886288377889628e-08 4.368727601899991e-14" rpy="0 0 0"/>
+    <mass value="65.80472593736373"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.010394 -0.829145 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fl_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.010394 -0.829145 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fl_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bl_wheel_1">
+  <inertial>
+    <origin xyz="-0.002000249782336372 7.886288388991858e-08 -7.771561172376096e-16" rpy="0 0 0"/>
+    <mass value="65.80472593736373"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.010394 0.260855 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/bl_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.010394 0.260855 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/bl_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fr_wheel_1">
+  <inertial>
+    <origin xyz="0.0019997502176680726 7.886289754566178e-08 4.340972026284362e-14" rpy="0 0 0"/>
+    <mass value="65.80472593736373"/>
+    <inertia ixx="1.584128" iyy="0.836383" izz="0.836383" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.956394 -0.829145 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fr_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.956394 -0.829145 -0.295" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/fr_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="panel_1">
+  <inertial>
+    <origin xyz="-2.098394249781907 0.002849836688600116 0.2876475501112252" rpy="0 0 0"/>
+    <mass value="131.93512225471943"/>
+    <inertia ixx="26.841833" iyy="21.913769" izz="48.508633" ixy="0.0" iyz="-6.5e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-4.581788 -0.28129 -1.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/panel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-4.581788 -0.28129 -1.027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/panel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_1">
+  <inertial>
+    <origin xyz="-0.2584019710100889 0.0021111539984787764 -0.07218922154686003" rpy="0 0 0"/>
+    <mass value="22.7414514992095"/>
+    <inertia ixx="1.72933" iyy="1.730341" izz="3.147968" ixy="0.000336" iyz="0.000291" ixz="-0.001081"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.741894 -0.284145 -0.962" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.741894 -0.284145 -0.962" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robotpadi_description)/meshes/arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="2.868394 0.829145 0.965" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fr_steering_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="2.868394 -0.260855 0.965" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="br_steering_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="2.098394 0.829145 0.965" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="fl_steering_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="2.098394 -0.260855 0.965" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="bl_steering_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="0.088 0.0 -0.67" rpy="0 0 0"/>
+  <parent link="br_steering_1"/>
+  <child link="br_wheel_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="-0.088 0.0 -0.67" rpy="0 0 0"/>
+  <parent link="fl_steering_1"/>
+  <child link="fl_wheel_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="-0.088 0.0 -0.67" rpy="0 0 0"/>
+  <parent link="bl_steering_1"/>
+  <child link="bl_wheel_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 8" type="continuous">
+  <origin xyz="0.088 0.0 -0.67" rpy="0 0 0"/>
+  <parent link="fr_steering_1"/>
+  <child link="fr_wheel_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="4.581788 0.28129 1.027" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="panel_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="2.741894 0.284145 0.962" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="arm_1"/>
+</joint>
+
+</robot>
