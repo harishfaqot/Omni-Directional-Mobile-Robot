@@ -13,6 +13,7 @@ config/gazebo.rviz
 config/ros_gz_bridge_gazebo.yaml
 launch/display.launch.py
 launch/gazebo.launch.py
+launch/nav_goal.launch.py
 meshes/arm_1.stl
 meshes/base_link.stl
 meshes/bl_steering_1.stl

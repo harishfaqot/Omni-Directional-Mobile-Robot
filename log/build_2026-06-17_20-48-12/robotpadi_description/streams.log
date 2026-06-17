@@ -1,0 +1,20 @@
+[1.352s] Invoking command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotpadi_description build --build-base /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/build install --record /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/install.log --single-version-externally-managed install_data
+[1.682s] running egg_info
+[1.705s] writing ../../build/robotpadi_description/robotpadi_description.egg-info/PKG-INFO
+[1.706s] writing dependency_links to ../../build/robotpadi_description/robotpadi_description.egg-info/dependency_links.txt
+[1.706s] writing requirements to ../../build/robotpadi_description/robotpadi_description.egg-info/requires.txt
+[1.707s] writing top-level names to ../../build/robotpadi_description/robotpadi_description.egg-info/top_level.txt
+[1.769s] reading manifest file '../../build/robotpadi_description/robotpadi_description.egg-info/SOURCES.txt'
+[1.769s] writing manifest file '../../build/robotpadi_description/robotpadi_description.egg-info/SOURCES.txt'
+[1.770s] running build
+[1.770s] running build_py
+[1.770s] running install
+[1.777s] running install_lib
+[1.802s] running install_data
+[1.803s] copying launch/nav_goal.launch.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch
+[1.805s] running install_egg_info
+[1.834s] removing '/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages/robotpadi_description-0.0.0-py3.12.egg-info' (and everything under it)
+[1.844s] Copying ../../build/robotpadi_description/robotpadi_description.egg-info to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages/robotpadi_description-0.0.0-py3.12.egg-info
+[1.845s] running install_scripts
+[2.034s] writing list of installed files to '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/install.log'
+[2.097s] Invoked command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/robotpadi_description build --build-base /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/build install --record /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/install.log --single-version-externally-managed install_data

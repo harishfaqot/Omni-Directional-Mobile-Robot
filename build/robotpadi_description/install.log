@@ -4,6 +4,7 @@
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/package.xml
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch/display.launch.py
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch/gazebo.launch.py
+/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/launch/nav_goal.launch.py
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf/robotpadi.ros2control
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf/robotpadi.gazebo
 /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/urdf/robotpadi.xacro

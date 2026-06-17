@@ -1,0 +1,36 @@
+running egg_info
+creating ../../build/robotpadi_controller/robotpadi_controller.egg-info
+writing ../../build/robotpadi_controller/robotpadi_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/robotpadi_controller/robotpadi_controller.egg-info/dependency_links.txt
+writing requirements to ../../build/robotpadi_controller/robotpadi_controller.egg-info/requires.txt
+writing top-level names to ../../build/robotpadi_controller/robotpadi_controller.egg-info/top_level.txt
+writing manifest file '../../build/robotpadi_controller/robotpadi_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/robotpadi_controller/robotpadi_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/robotpadi_controller/robotpadi_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller
+copying robotpadi_controller/nav_goal_driver.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller
+copying robotpadi_controller/gui.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller
+copying robotpadi_controller/__init__.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller
+running install
+running install_lib
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller
+copying /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller/nav_goal_driver.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller
+copying /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller/gui.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller
+copying /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build/lib/robotpadi_controller/__init__.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller
+byte-compiling /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller/nav_goal_driver.py to nav_goal_driver.cpython-312.pyc
+byte-compiling /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller/gui.py to gui.cpython-312.pyc
+byte-compiling /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index/packages
+copying resource/robotpadi_controller -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index/packages
+copying package.xml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/robotpadi_controller
+running install_egg_info
+Copying ../../build/robotpadi_controller/robotpadi_controller.egg-info to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi_controller-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/install.log'

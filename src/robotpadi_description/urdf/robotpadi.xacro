@@ -4,6 +4,7 @@
 <xacro:include filename="$(find robotpadi_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.ros2control" />
 <xacro:include filename="$(find robotpadi_description)/urdf/robotpadi.gazebo" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="0.38402832945911336 0.2840129113095087 1.0082275557140674" rpy="0 0 0"/>
