@@ -1,7 +1,10 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction, DeclareLaunchArgument
+from launch.actions import (
+    IncludeLaunchDescription, TimerAction,
+    DeclareLaunchArgument, SetEnvironmentVariable
+)
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 import xacro
@@ -14,11 +17,21 @@ def generate_launch_description():
     pkg_ros_gz_rbot = get_package_share_directory('robotpadi_description')
 
     robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'robotpadi.xacro')
-    ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
-    rviz_config_file = os.path.join(pkg_ros_gz_rbot, 'config', 'gazebo.rviz')  # use gazebo.rviz, not display.rviz
+    ros_gz_bridge_config   = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
+    rviz_config_file       = os.path.join(pkg_ros_gz_rbot, 'config', 'gazebo.rviz')
+    world_file             = os.path.join(pkg_ros_gz_rbot, 'worlds', 'paddy_generated.world')
 
     robot_description_config = xacro.process_file(robot_description_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
+
+    pkg_parent = os.path.dirname(pkg_ros_gz_rbot)
+    set_gz_resource_path = SetEnvironmentVariable(
+        name='GZ_SIM_RESOURCE_PATH',
+        value=':'.join([
+            pkg_ros_gz_rbot,          # share/robotpadi_description  (for worlds/, models/ inside package)
+            pkg_parent,               # share/  (so ../models/ from worlds/ resolves here)
+        ])
+    )
 
     # ── Nodes ────────────────────────────────────────────────────────────────
 
@@ -28,20 +41,14 @@ def generate_launch_description():
         name='robot_state_publisher',
         output='screen',
         parameters=[robot_description],
-        # Remap so RSP receives from wherever joint_state_broadcaster publishes.
-        # gz_ros2_control may publish under /robotpadi/joint_states — check with:
-        #   ros2 topic list | grep joint
-        # and adjust the left side below if needed.
-        remappings=[
-            ('/joint_states', '/joint_states'),
-        ]
+        remappings=[('/joint_states', '/joint_states')],
     )
-
-    world_file = os.path.join(pkg_ros_gz_rbot, 'worlds', 'worlds.sdf')
 
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
-        launch_arguments={'gz_args': f'-r -v 4 --render-engine ogre {world_file}'}.items()
+        launch_arguments={
+            'gz_args': f'-r -v 4 --render-engine ogre {world_file}'
+        }.items()
     )
 
     spawn_robot = TimerAction(
@@ -53,9 +60,9 @@ def generate_launch_description():
                 '-topic', '/robot_description',
                 '-name', 'robotpadi',
                 '-allow_renaming', 'false',
-                '-x', '10.0',
-                '-y', '0.0',
-                '-z', '0.0',
+                '-x', '-5.0',
+                '-y', '-5.0',
+                '-z', '0.35',
                 '-Y', '0.0',
             ],
             output='screen'
@@ -99,7 +106,6 @@ def generate_launch_description():
         )]
     )
 
-    # Delayed so RSP is ready before RViz tries to subscribe to /tf
     rviz_node = TimerAction(
         period=6.0,
         actions=[Node(
@@ -111,7 +117,18 @@ def generate_launch_description():
         )]
     )
 
+    swerve_nav_goal = TimerAction(
+        period=12.0,
+        actions=[Node(
+            package='robotpadi_controller',
+            executable='swerve_nav_goal',
+            name='swerve_nav_goal',
+            output='screen',
+        )]
+    )
+
     return LaunchDescription([
+        set_gz_resource_path,       # <-- must come first, before gazebo starts
         robot_state_publisher,
         gazebo,
         spawn_robot,
@@ -120,4 +137,5 @@ def generate_launch_description():
         load_steering_controller,
         load_wheel_controller,
         rviz_node,
+        swerve_nav_goal,
     ])

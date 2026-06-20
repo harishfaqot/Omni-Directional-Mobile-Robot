@@ -23,7 +23,9 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': [
-        ],
-    },
+    'console_scripts': [
+        'swerve_nav_goal = robotpadi_controller.swerve_nav_goal:main',
+        # other nodes...
+    ],
+},
 )

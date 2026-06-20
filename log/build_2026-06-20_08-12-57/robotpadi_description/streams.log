@@ -1,0 +1,20 @@
+[2.276s] Invoking command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/build --no-deps symlink_data
+[2.761s] running develop
+[3.026s] running egg_info
+[3.062s] writing robotpadi_description.egg-info/PKG-INFO
+[3.063s] writing dependency_links to robotpadi_description.egg-info/dependency_links.txt
+[3.063s] writing requirements to robotpadi_description.egg-info/requires.txt
+[3.064s] writing top-level names to robotpadi_description.egg-info/top_level.txt
+[3.125s] reading manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+[3.129s] writing manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+[3.164s] running build_ext
+[3.164s] Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages/robotpadi-description.egg-link (link to .)
+[3.167s] 
+[3.167s] Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description
+[3.167s] running symlink_data
+[3.168s] symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/worlds/paddy_generated.world -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/worlds
+[3.169s] symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/worlds/generate_world.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/worlds
+[3.169s] symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/worlds/optimize.py -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/worlds
+[3.170s] symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize_01/meshes/maize_01_old.dae -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize_01/meshes
+[3.171s] symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/models/maize_02/meshes/maize_02_old.dae -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/share/robotpadi_description/models/maize_02/meshes
+[3.271s] Invoked command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/build --no-deps symlink_data

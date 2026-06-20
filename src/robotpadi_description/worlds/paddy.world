@@ -1,0 +1,991 @@
+<?xml version="1.0"?>
+<!-- Seed: 2983 -->
+<sdf version="1.9">
+  <world name="virtual_maize_field">
+
+    <!-- Change max step size to increase the simulation speed but decrease the accuracy. -->
+    <physics name="10ms" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+
+    <light type="directional" name="sun">
+      <!-- Disable shadows to avoid flickering on non-gpu pc, see: 
+           https://github.com/gazebosim/gz-sim/issues/2267 -->
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+      <grid>false</grid>
+    </scene>
+
+    <model name="heightmap">
+      <static>true</static>
+      <link name="link">
+        <visual name="ground_plane">
+          <geometry>
+            <heightmap>
+              <use_terrain_paging>false</use_terrain_paging>
+              <texture>
+                <diffuse>../models/materials/textures/grass_color.jpg</diffuse>
+                <normal>../models/materials/textures/grass_normal.jpg</normal>
+                <size>4</size>
+              </texture>
+              <texture>
+                <diffuse>../models/materials/textures/dirt_diffusespecular.png</diffuse>
+                <normal>../models/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <!-- <texture>
+                <diffuse>../models/materials/textures/grass_color.jpg</diffuse>
+                <normal>../models/materials/textures/grass_normal.jpg</normal>
+                <size>4</size>
+              </texture> -->
+              <!-- Without this unused 3. texture the blend between the first 2 doesn"t work -->
+              <texture>
+                <diffuse>../models/materials/textures/fungus_diffusespecular.png</diffuse>
+                <normal>../models/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <blend>
+                <min_height>0.2</min_height>
+                <fade_dist>0.05</fade_dist>
+              </blend>
+              <!-- <blend>
+                <min_height>0.30000000000000004</min_height>
+                <fade_dist>0.05</fade_dist>
+              </blend> -->
+              <!-- Without this unused 3. texture the blend between the first 2 doesn"t work -->
+              <blend>
+                <min_height>4</min_height>
+                <fade_dist>5</fade_dist>
+              </blend>
+              <uri>../models/maize/materials/textures/virtual_maize_field_heightmap.png</uri>
+              <size>21.88 21.88 0.4</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <heightmap>
+              <uri>../models/maize/materials/textures/virtual_maize_field_heightmap.png</uri>
+              <size>21.88 21.88 0.4</size>
+              <pos>0 0 0</pos>
+            </heightmap>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- ===== GROUP 0 (Y base = 0.000) ===== -->
+    <!-- Row A: Y=0.0000 -->
+    <include><name>rice_g0rA_p0</name><pose>0.0000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p1</name><pose>0.2500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p2</name><pose>0.5000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p3</name><pose>0.7500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p4</name><pose>1.0000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p5</name><pose>1.2500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p6</name><pose>1.5000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p7</name><pose>1.7500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p8</name><pose>2.0000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p9</name><pose>2.2500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p10</name><pose>2.5000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p11</name><pose>2.7500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p12</name><pose>3.0000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p13</name><pose>3.2500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p14</name><pose>3.5000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p15</name><pose>3.7500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p16</name><pose>4.0000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p17</name><pose>4.2500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rA_p18</name><pose>4.5000 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rA_p19</name><pose>4.7500 0.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=0.2500 (staggered +0.125) -->
+    <include><name>rice_g0rB_p0</name><pose>0.1250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p1</name><pose>0.3750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p2</name><pose>0.6250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p3</name><pose>0.8750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p4</name><pose>1.1250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p5</name><pose>1.3750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p6</name><pose>1.6250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p7</name><pose>1.8750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p8</name><pose>2.1250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p9</name><pose>2.3750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p10</name><pose>2.6250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p11</name><pose>2.8750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p12</name><pose>3.1250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p13</name><pose>3.3750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p14</name><pose>3.6250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p15</name><pose>3.8750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p16</name><pose>4.1250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p17</name><pose>4.3750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g0rB_p18</name><pose>4.6250 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g0rB_p19</name><pose>4.8750 0.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 1 (Y base = 0.750) ===== -->
+    <!-- Row A: Y=0.7500 -->
+    <include><name>rice_g1rA_p0</name><pose>0.0000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p1</name><pose>0.2500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p2</name><pose>0.5000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p3</name><pose>0.7500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p4</name><pose>1.0000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p5</name><pose>1.2500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p6</name><pose>1.5000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p7</name><pose>1.7500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p8</name><pose>2.0000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p9</name><pose>2.2500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p10</name><pose>2.5000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p11</name><pose>2.7500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p12</name><pose>3.0000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p13</name><pose>3.2500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p14</name><pose>3.5000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p15</name><pose>3.7500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p16</name><pose>4.0000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p17</name><pose>4.2500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rA_p18</name><pose>4.5000 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rA_p19</name><pose>4.7500 0.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=1.0000 (staggered +0.125) -->
+    <include><name>rice_g1rB_p0</name><pose>0.1250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p1</name><pose>0.3750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p2</name><pose>0.6250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p3</name><pose>0.8750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p4</name><pose>1.1250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p5</name><pose>1.3750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p6</name><pose>1.6250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p7</name><pose>1.8750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p8</name><pose>2.1250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p9</name><pose>2.3750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p10</name><pose>2.6250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p11</name><pose>2.8750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p12</name><pose>3.1250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p13</name><pose>3.3750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p14</name><pose>3.6250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p15</name><pose>3.8750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p16</name><pose>4.1250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p17</name><pose>4.3750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g1rB_p18</name><pose>4.6250 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g1rB_p19</name><pose>4.8750 1.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 2 (Y base = 1.500) ===== -->
+    <!-- Row A: Y=1.5000 -->
+    <include><name>rice_g2rA_p0</name><pose>0.0000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p1</name><pose>0.2500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p2</name><pose>0.5000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p3</name><pose>0.7500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p4</name><pose>1.0000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p5</name><pose>1.2500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p6</name><pose>1.5000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p7</name><pose>1.7500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p8</name><pose>2.0000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p9</name><pose>2.2500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p10</name><pose>2.5000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p11</name><pose>2.7500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p12</name><pose>3.0000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p13</name><pose>3.2500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p14</name><pose>3.5000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p15</name><pose>3.7500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p16</name><pose>4.0000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p17</name><pose>4.2500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rA_p18</name><pose>4.5000 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rA_p19</name><pose>4.7500 1.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=1.7500 (staggered +0.125) -->
+    <include><name>rice_g2rB_p0</name><pose>0.1250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p1</name><pose>0.3750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p2</name><pose>0.6250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p3</name><pose>0.8750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p4</name><pose>1.1250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p5</name><pose>1.3750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p6</name><pose>1.6250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p7</name><pose>1.8750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p8</name><pose>2.1250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p9</name><pose>2.3750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p10</name><pose>2.6250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p11</name><pose>2.8750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p12</name><pose>3.1250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p13</name><pose>3.3750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p14</name><pose>3.6250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p15</name><pose>3.8750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p16</name><pose>4.1250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p17</name><pose>4.3750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g2rB_p18</name><pose>4.6250 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g2rB_p19</name><pose>4.8750 1.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 3 (Y base = 2.250) ===== -->
+    <!-- Row A: Y=2.2500 -->
+    <include><name>rice_g3rA_p0</name><pose>0.0000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p1</name><pose>0.2500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p2</name><pose>0.5000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p3</name><pose>0.7500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p4</name><pose>1.0000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p5</name><pose>1.2500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p6</name><pose>1.5000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p7</name><pose>1.7500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p8</name><pose>2.0000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p9</name><pose>2.2500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p10</name><pose>2.5000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p11</name><pose>2.7500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p12</name><pose>3.0000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p13</name><pose>3.2500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p14</name><pose>3.5000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p15</name><pose>3.7500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p16</name><pose>4.0000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p17</name><pose>4.2500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rA_p18</name><pose>4.5000 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rA_p19</name><pose>4.7500 2.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=2.5000 (staggered +0.125) -->
+    <include><name>rice_g3rB_p0</name><pose>0.1250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p1</name><pose>0.3750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p2</name><pose>0.6250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p3</name><pose>0.8750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p4</name><pose>1.1250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p5</name><pose>1.3750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p6</name><pose>1.6250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p7</name><pose>1.8750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p8</name><pose>2.1250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p9</name><pose>2.3750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p10</name><pose>2.6250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p11</name><pose>2.8750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p12</name><pose>3.1250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p13</name><pose>3.3750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p14</name><pose>3.6250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p15</name><pose>3.8750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p16</name><pose>4.1250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p17</name><pose>4.3750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g3rB_p18</name><pose>4.6250 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g3rB_p19</name><pose>4.8750 2.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 4 (Y base = 3.000) ===== -->
+    <!-- Row A: Y=3.0000 -->
+    <include><name>rice_g4rA_p0</name><pose>0.0000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p1</name><pose>0.2500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p2</name><pose>0.5000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p3</name><pose>0.7500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p4</name><pose>1.0000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p5</name><pose>1.2500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p6</name><pose>1.5000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p7</name><pose>1.7500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p8</name><pose>2.0000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p9</name><pose>2.2500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p10</name><pose>2.5000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p11</name><pose>2.7500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p12</name><pose>3.0000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p13</name><pose>3.2500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p14</name><pose>3.5000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p15</name><pose>3.7500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p16</name><pose>4.0000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p17</name><pose>4.2500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rA_p18</name><pose>4.5000 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rA_p19</name><pose>4.7500 3.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=3.2500 (staggered +0.125) -->
+    <include><name>rice_g4rB_p0</name><pose>0.1250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p1</name><pose>0.3750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p2</name><pose>0.6250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p3</name><pose>0.8750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p4</name><pose>1.1250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p5</name><pose>1.3750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p6</name><pose>1.6250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p7</name><pose>1.8750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p8</name><pose>2.1250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p9</name><pose>2.3750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p10</name><pose>2.6250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p11</name><pose>2.8750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p12</name><pose>3.1250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p13</name><pose>3.3750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p14</name><pose>3.6250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p15</name><pose>3.8750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p16</name><pose>4.1250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p17</name><pose>4.3750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g4rB_p18</name><pose>4.6250 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g4rB_p19</name><pose>4.8750 3.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 5 (Y base = 3.750) ===== -->
+    <!-- Row A: Y=3.7500 -->
+    <include><name>rice_g5rA_p0</name><pose>0.0000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p1</name><pose>0.2500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p2</name><pose>0.5000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p3</name><pose>0.7500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p4</name><pose>1.0000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p5</name><pose>1.2500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p6</name><pose>1.5000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p7</name><pose>1.7500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p8</name><pose>2.0000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p9</name><pose>2.2500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p10</name><pose>2.5000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p11</name><pose>2.7500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p12</name><pose>3.0000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p13</name><pose>3.2500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p14</name><pose>3.5000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p15</name><pose>3.7500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p16</name><pose>4.0000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p17</name><pose>4.2500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rA_p18</name><pose>4.5000 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rA_p19</name><pose>4.7500 3.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=4.0000 (staggered +0.125) -->
+    <include><name>rice_g5rB_p0</name><pose>0.1250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p1</name><pose>0.3750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p2</name><pose>0.6250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p3</name><pose>0.8750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p4</name><pose>1.1250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p5</name><pose>1.3750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p6</name><pose>1.6250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p7</name><pose>1.8750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p8</name><pose>2.1250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p9</name><pose>2.3750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p10</name><pose>2.6250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p11</name><pose>2.8750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p12</name><pose>3.1250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p13</name><pose>3.3750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p14</name><pose>3.6250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p15</name><pose>3.8750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p16</name><pose>4.1250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p17</name><pose>4.3750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g5rB_p18</name><pose>4.6250 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g5rB_p19</name><pose>4.8750 4.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 6 (Y base = 4.500) ===== -->
+    <!-- Row A: Y=4.5000 -->
+    <include><name>rice_g6rA_p0</name><pose>0.0000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p1</name><pose>0.2500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p2</name><pose>0.5000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p3</name><pose>0.7500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p4</name><pose>1.0000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p5</name><pose>1.2500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p6</name><pose>1.5000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p7</name><pose>1.7500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p8</name><pose>2.0000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p9</name><pose>2.2500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p10</name><pose>2.5000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p11</name><pose>2.7500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p12</name><pose>3.0000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p13</name><pose>3.2500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p14</name><pose>3.5000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p15</name><pose>3.7500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p16</name><pose>4.0000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p17</name><pose>4.2500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rA_p18</name><pose>4.5000 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rA_p19</name><pose>4.7500 4.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=4.7500 (staggered +0.125) -->
+    <include><name>rice_g6rB_p0</name><pose>0.1250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p1</name><pose>0.3750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p2</name><pose>0.6250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p3</name><pose>0.8750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p4</name><pose>1.1250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p5</name><pose>1.3750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p6</name><pose>1.6250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p7</name><pose>1.8750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p8</name><pose>2.1250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p9</name><pose>2.3750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p10</name><pose>2.6250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p11</name><pose>2.8750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p12</name><pose>3.1250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p13</name><pose>3.3750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p14</name><pose>3.6250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p15</name><pose>3.8750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p16</name><pose>4.1250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p17</name><pose>4.3750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g6rB_p18</name><pose>4.6250 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g6rB_p19</name><pose>4.8750 4.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 7 (Y base = 5.250) ===== -->
+    <!-- Row A: Y=5.2500 -->
+    <include><name>rice_g7rA_p0</name><pose>0.0000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p1</name><pose>0.2500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p2</name><pose>0.5000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p3</name><pose>0.7500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p4</name><pose>1.0000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p5</name><pose>1.2500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p6</name><pose>1.5000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p7</name><pose>1.7500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p8</name><pose>2.0000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p9</name><pose>2.2500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p10</name><pose>2.5000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p11</name><pose>2.7500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p12</name><pose>3.0000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p13</name><pose>3.2500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p14</name><pose>3.5000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p15</name><pose>3.7500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p16</name><pose>4.0000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p17</name><pose>4.2500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rA_p18</name><pose>4.5000 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rA_p19</name><pose>4.7500 5.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=5.5000 (staggered +0.125) -->
+    <include><name>rice_g7rB_p0</name><pose>0.1250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p1</name><pose>0.3750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p2</name><pose>0.6250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p3</name><pose>0.8750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p4</name><pose>1.1250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p5</name><pose>1.3750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p6</name><pose>1.6250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p7</name><pose>1.8750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p8</name><pose>2.1250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p9</name><pose>2.3750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p10</name><pose>2.6250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p11</name><pose>2.8750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p12</name><pose>3.1250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p13</name><pose>3.3750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p14</name><pose>3.6250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p15</name><pose>3.8750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p16</name><pose>4.1250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p17</name><pose>4.3750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g7rB_p18</name><pose>4.6250 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g7rB_p19</name><pose>4.8750 5.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 8 (Y base = 6.000) ===== -->
+    <!-- Row A: Y=6.0000 -->
+    <include><name>rice_g8rA_p0</name><pose>0.0000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p1</name><pose>0.2500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p2</name><pose>0.5000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p3</name><pose>0.7500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p4</name><pose>1.0000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p5</name><pose>1.2500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p6</name><pose>1.5000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p7</name><pose>1.7500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p8</name><pose>2.0000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p9</name><pose>2.2500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p10</name><pose>2.5000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p11</name><pose>2.7500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p12</name><pose>3.0000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p13</name><pose>3.2500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p14</name><pose>3.5000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p15</name><pose>3.7500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p16</name><pose>4.0000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p17</name><pose>4.2500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rA_p18</name><pose>4.5000 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rA_p19</name><pose>4.7500 6.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=6.2500 (staggered +0.125) -->
+    <include><name>rice_g8rB_p0</name><pose>0.1250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p1</name><pose>0.3750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p2</name><pose>0.6250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p3</name><pose>0.8750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p4</name><pose>1.1250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p5</name><pose>1.3750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p6</name><pose>1.6250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p7</name><pose>1.8750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p8</name><pose>2.1250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p9</name><pose>2.3750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p10</name><pose>2.6250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p11</name><pose>2.8750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p12</name><pose>3.1250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p13</name><pose>3.3750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p14</name><pose>3.6250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p15</name><pose>3.8750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p16</name><pose>4.1250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p17</name><pose>4.3750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g8rB_p18</name><pose>4.6250 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g8rB_p19</name><pose>4.8750 6.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 9 (Y base = 6.750) ===== -->
+    <!-- Row A: Y=6.7500 -->
+    <include><name>rice_g9rA_p0</name><pose>0.0000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p1</name><pose>0.2500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p2</name><pose>0.5000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p3</name><pose>0.7500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p4</name><pose>1.0000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p5</name><pose>1.2500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p6</name><pose>1.5000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p7</name><pose>1.7500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p8</name><pose>2.0000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p9</name><pose>2.2500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p10</name><pose>2.5000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p11</name><pose>2.7500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p12</name><pose>3.0000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p13</name><pose>3.2500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p14</name><pose>3.5000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p15</name><pose>3.7500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p16</name><pose>4.0000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p17</name><pose>4.2500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rA_p18</name><pose>4.5000 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rA_p19</name><pose>4.7500 6.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=7.0000 (staggered +0.125) -->
+    <include><name>rice_g9rB_p0</name><pose>0.1250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p1</name><pose>0.3750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p2</name><pose>0.6250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p3</name><pose>0.8750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p4</name><pose>1.1250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p5</name><pose>1.3750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p6</name><pose>1.6250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p7</name><pose>1.8750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p8</name><pose>2.1250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p9</name><pose>2.3750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p10</name><pose>2.6250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p11</name><pose>2.8750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p12</name><pose>3.1250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p13</name><pose>3.3750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p14</name><pose>3.6250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p15</name><pose>3.8750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p16</name><pose>4.1250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p17</name><pose>4.3750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g9rB_p18</name><pose>4.6250 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g9rB_p19</name><pose>4.8750 7.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 10 (Y base = 7.500) ===== -->
+    <!-- Row A: Y=7.5000 -->
+    <include><name>rice_g10rA_p0</name><pose>0.0000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p1</name><pose>0.2500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p2</name><pose>0.5000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p3</name><pose>0.7500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p4</name><pose>1.0000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p5</name><pose>1.2500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p6</name><pose>1.5000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p7</name><pose>1.7500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p8</name><pose>2.0000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p9</name><pose>2.2500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p10</name><pose>2.5000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p11</name><pose>2.7500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p12</name><pose>3.0000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p13</name><pose>3.2500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p14</name><pose>3.5000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p15</name><pose>3.7500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p16</name><pose>4.0000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p17</name><pose>4.2500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rA_p18</name><pose>4.5000 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rA_p19</name><pose>4.7500 7.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=7.7500 (staggered +0.125) -->
+    <include><name>rice_g10rB_p0</name><pose>0.1250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p1</name><pose>0.3750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p2</name><pose>0.6250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p3</name><pose>0.8750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p4</name><pose>1.1250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p5</name><pose>1.3750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p6</name><pose>1.6250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p7</name><pose>1.8750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p8</name><pose>2.1250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p9</name><pose>2.3750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p10</name><pose>2.6250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p11</name><pose>2.8750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p12</name><pose>3.1250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p13</name><pose>3.3750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p14</name><pose>3.6250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p15</name><pose>3.8750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p16</name><pose>4.1250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p17</name><pose>4.3750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g10rB_p18</name><pose>4.6250 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g10rB_p19</name><pose>4.8750 7.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 11 (Y base = 8.250) ===== -->
+    <!-- Row A: Y=8.2500 -->
+    <include><name>rice_g11rA_p0</name><pose>0.0000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p1</name><pose>0.2500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p2</name><pose>0.5000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p3</name><pose>0.7500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p4</name><pose>1.0000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p5</name><pose>1.2500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p6</name><pose>1.5000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p7</name><pose>1.7500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p8</name><pose>2.0000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p9</name><pose>2.2500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p10</name><pose>2.5000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p11</name><pose>2.7500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p12</name><pose>3.0000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p13</name><pose>3.2500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p14</name><pose>3.5000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p15</name><pose>3.7500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p16</name><pose>4.0000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p17</name><pose>4.2500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rA_p18</name><pose>4.5000 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rA_p19</name><pose>4.7500 8.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=8.5000 (staggered +0.125) -->
+    <include><name>rice_g11rB_p0</name><pose>0.1250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p1</name><pose>0.3750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p2</name><pose>0.6250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p3</name><pose>0.8750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p4</name><pose>1.1250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p5</name><pose>1.3750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p6</name><pose>1.6250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p7</name><pose>1.8750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p8</name><pose>2.1250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p9</name><pose>2.3750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p10</name><pose>2.6250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p11</name><pose>2.8750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p12</name><pose>3.1250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p13</name><pose>3.3750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p14</name><pose>3.6250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p15</name><pose>3.8750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p16</name><pose>4.1250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p17</name><pose>4.3750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g11rB_p18</name><pose>4.6250 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g11rB_p19</name><pose>4.8750 8.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 12 (Y base = 9.000) ===== -->
+    <!-- Row A: Y=9.0000 -->
+    <include><name>rice_g12rA_p0</name><pose>0.0000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p1</name><pose>0.2500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p2</name><pose>0.5000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p3</name><pose>0.7500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p4</name><pose>1.0000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p5</name><pose>1.2500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p6</name><pose>1.5000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p7</name><pose>1.7500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p8</name><pose>2.0000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p9</name><pose>2.2500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p10</name><pose>2.5000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p11</name><pose>2.7500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p12</name><pose>3.0000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p13</name><pose>3.2500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p14</name><pose>3.5000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p15</name><pose>3.7500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p16</name><pose>4.0000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p17</name><pose>4.2500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rA_p18</name><pose>4.5000 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rA_p19</name><pose>4.7500 9.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=9.2500 (staggered +0.125) -->
+    <include><name>rice_g12rB_p0</name><pose>0.1250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p1</name><pose>0.3750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p2</name><pose>0.6250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p3</name><pose>0.8750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p4</name><pose>1.1250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p5</name><pose>1.3750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p6</name><pose>1.6250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p7</name><pose>1.8750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p8</name><pose>2.1250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p9</name><pose>2.3750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p10</name><pose>2.6250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p11</name><pose>2.8750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p12</name><pose>3.1250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p13</name><pose>3.3750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p14</name><pose>3.6250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p15</name><pose>3.8750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p16</name><pose>4.1250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p17</name><pose>4.3750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g12rB_p18</name><pose>4.6250 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g12rB_p19</name><pose>4.8750 9.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 13 (Y base = 9.750) ===== -->
+    <!-- Row A: Y=9.7500 -->
+    <include><name>rice_g13rA_p0</name><pose>0.0000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p1</name><pose>0.2500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p2</name><pose>0.5000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p3</name><pose>0.7500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p4</name><pose>1.0000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p5</name><pose>1.2500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p6</name><pose>1.5000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p7</name><pose>1.7500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p8</name><pose>2.0000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p9</name><pose>2.2500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p10</name><pose>2.5000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p11</name><pose>2.7500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p12</name><pose>3.0000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p13</name><pose>3.2500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p14</name><pose>3.5000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p15</name><pose>3.7500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p16</name><pose>4.0000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p17</name><pose>4.2500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rA_p18</name><pose>4.5000 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rA_p19</name><pose>4.7500 9.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=10.0000 (staggered +0.125) -->
+    <include><name>rice_g13rB_p0</name><pose>0.1250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p1</name><pose>0.3750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p2</name><pose>0.6250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p3</name><pose>0.8750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p4</name><pose>1.1250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p5</name><pose>1.3750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p6</name><pose>1.6250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p7</name><pose>1.8750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p8</name><pose>2.1250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p9</name><pose>2.3750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p10</name><pose>2.6250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p11</name><pose>2.8750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p12</name><pose>3.1250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p13</name><pose>3.3750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p14</name><pose>3.6250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p15</name><pose>3.8750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p16</name><pose>4.1250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p17</name><pose>4.3750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g13rB_p18</name><pose>4.6250 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g13rB_p19</name><pose>4.8750 10.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 14 (Y base = 10.500) ===== -->
+    <!-- Row A: Y=10.5000 -->
+    <include><name>rice_g14rA_p0</name><pose>0.0000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p1</name><pose>0.2500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p2</name><pose>0.5000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p3</name><pose>0.7500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p4</name><pose>1.0000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p5</name><pose>1.2500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p6</name><pose>1.5000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p7</name><pose>1.7500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p8</name><pose>2.0000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p9</name><pose>2.2500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p10</name><pose>2.5000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p11</name><pose>2.7500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p12</name><pose>3.0000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p13</name><pose>3.2500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p14</name><pose>3.5000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p15</name><pose>3.7500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p16</name><pose>4.0000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p17</name><pose>4.2500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rA_p18</name><pose>4.5000 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rA_p19</name><pose>4.7500 10.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=10.7500 (staggered +0.125) -->
+    <include><name>rice_g14rB_p0</name><pose>0.1250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p1</name><pose>0.3750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p2</name><pose>0.6250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p3</name><pose>0.8750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p4</name><pose>1.1250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p5</name><pose>1.3750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p6</name><pose>1.6250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p7</name><pose>1.8750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p8</name><pose>2.1250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p9</name><pose>2.3750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p10</name><pose>2.6250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p11</name><pose>2.8750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p12</name><pose>3.1250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p13</name><pose>3.3750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p14</name><pose>3.6250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p15</name><pose>3.8750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p16</name><pose>4.1250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p17</name><pose>4.3750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g14rB_p18</name><pose>4.6250 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g14rB_p19</name><pose>4.8750 10.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 15 (Y base = 11.250) ===== -->
+    <!-- Row A: Y=11.2500 -->
+    <include><name>rice_g15rA_p0</name><pose>0.0000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p1</name><pose>0.2500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p2</name><pose>0.5000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p3</name><pose>0.7500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p4</name><pose>1.0000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p5</name><pose>1.2500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p6</name><pose>1.5000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p7</name><pose>1.7500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p8</name><pose>2.0000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p9</name><pose>2.2500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p10</name><pose>2.5000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p11</name><pose>2.7500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p12</name><pose>3.0000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p13</name><pose>3.2500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p14</name><pose>3.5000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p15</name><pose>3.7500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p16</name><pose>4.0000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p17</name><pose>4.2500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rA_p18</name><pose>4.5000 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rA_p19</name><pose>4.7500 11.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=11.5000 (staggered +0.125) -->
+    <include><name>rice_g15rB_p0</name><pose>0.1250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p1</name><pose>0.3750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p2</name><pose>0.6250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p3</name><pose>0.8750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p4</name><pose>1.1250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p5</name><pose>1.3750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p6</name><pose>1.6250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p7</name><pose>1.8750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p8</name><pose>2.1250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p9</name><pose>2.3750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p10</name><pose>2.6250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p11</name><pose>2.8750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p12</name><pose>3.1250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p13</name><pose>3.3750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p14</name><pose>3.6250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p15</name><pose>3.8750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p16</name><pose>4.1250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p17</name><pose>4.3750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g15rB_p18</name><pose>4.6250 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g15rB_p19</name><pose>4.8750 11.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 16 (Y base = 12.000) ===== -->
+    <!-- Row A: Y=12.0000 -->
+    <include><name>rice_g16rA_p0</name><pose>0.0000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p1</name><pose>0.2500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p2</name><pose>0.5000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p3</name><pose>0.7500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p4</name><pose>1.0000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p5</name><pose>1.2500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p6</name><pose>1.5000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p7</name><pose>1.7500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p8</name><pose>2.0000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p9</name><pose>2.2500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p10</name><pose>2.5000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p11</name><pose>2.7500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p12</name><pose>3.0000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p13</name><pose>3.2500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p14</name><pose>3.5000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p15</name><pose>3.7500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p16</name><pose>4.0000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p17</name><pose>4.2500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rA_p18</name><pose>4.5000 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rA_p19</name><pose>4.7500 12.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=12.2500 (staggered +0.125) -->
+    <include><name>rice_g16rB_p0</name><pose>0.1250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p1</name><pose>0.3750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p2</name><pose>0.6250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p3</name><pose>0.8750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p4</name><pose>1.1250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p5</name><pose>1.3750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p6</name><pose>1.6250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p7</name><pose>1.8750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p8</name><pose>2.1250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p9</name><pose>2.3750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p10</name><pose>2.6250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p11</name><pose>2.8750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p12</name><pose>3.1250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p13</name><pose>3.3750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p14</name><pose>3.6250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p15</name><pose>3.8750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p16</name><pose>4.1250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p17</name><pose>4.3750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g16rB_p18</name><pose>4.6250 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g16rB_p19</name><pose>4.8750 12.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 17 (Y base = 12.750) ===== -->
+    <!-- Row A: Y=12.7500 -->
+    <include><name>rice_g17rA_p0</name><pose>0.0000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p1</name><pose>0.2500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p2</name><pose>0.5000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p3</name><pose>0.7500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p4</name><pose>1.0000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p5</name><pose>1.2500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p6</name><pose>1.5000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p7</name><pose>1.7500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p8</name><pose>2.0000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p9</name><pose>2.2500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p10</name><pose>2.5000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p11</name><pose>2.7500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p12</name><pose>3.0000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p13</name><pose>3.2500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p14</name><pose>3.5000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p15</name><pose>3.7500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p16</name><pose>4.0000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p17</name><pose>4.2500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rA_p18</name><pose>4.5000 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rA_p19</name><pose>4.7500 12.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=13.0000 (staggered +0.125) -->
+    <include><name>rice_g17rB_p0</name><pose>0.1250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p1</name><pose>0.3750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p2</name><pose>0.6250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p3</name><pose>0.8750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p4</name><pose>1.1250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p5</name><pose>1.3750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p6</name><pose>1.6250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p7</name><pose>1.8750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p8</name><pose>2.1250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p9</name><pose>2.3750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p10</name><pose>2.6250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p11</name><pose>2.8750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p12</name><pose>3.1250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p13</name><pose>3.3750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p14</name><pose>3.6250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p15</name><pose>3.8750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p16</name><pose>4.1250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p17</name><pose>4.3750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g17rB_p18</name><pose>4.6250 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g17rB_p19</name><pose>4.8750 13.0000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 18 (Y base = 13.500) ===== -->
+    <!-- Row A: Y=13.5000 -->
+    <include><name>rice_g18rA_p0</name><pose>0.0000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p1</name><pose>0.2500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p2</name><pose>0.5000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p3</name><pose>0.7500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p4</name><pose>1.0000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p5</name><pose>1.2500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p6</name><pose>1.5000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p7</name><pose>1.7500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p8</name><pose>2.0000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p9</name><pose>2.2500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p10</name><pose>2.5000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p11</name><pose>2.7500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p12</name><pose>3.0000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p13</name><pose>3.2500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p14</name><pose>3.5000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p15</name><pose>3.7500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p16</name><pose>4.0000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p17</name><pose>4.2500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rA_p18</name><pose>4.5000 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rA_p19</name><pose>4.7500 13.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=13.7500 (staggered +0.125) -->
+    <include><name>rice_g18rB_p0</name><pose>0.1250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p1</name><pose>0.3750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p2</name><pose>0.6250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p3</name><pose>0.8750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p4</name><pose>1.1250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p5</name><pose>1.3750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p6</name><pose>1.6250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p7</name><pose>1.8750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p8</name><pose>2.1250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p9</name><pose>2.3750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p10</name><pose>2.6250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p11</name><pose>2.8750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p12</name><pose>3.1250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p13</name><pose>3.3750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p14</name><pose>3.6250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p15</name><pose>3.8750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p16</name><pose>4.1250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p17</name><pose>4.3750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g18rB_p18</name><pose>4.6250 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g18rB_p19</name><pose>4.8750 13.7500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+    <!-- ===== GROUP 19 (Y base = 14.250) ===== -->
+    <!-- Row A: Y=14.2500 -->
+    <include><name>rice_g19rA_p0</name><pose>0.0000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p1</name><pose>0.2500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p2</name><pose>0.5000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p3</name><pose>0.7500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p4</name><pose>1.0000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p5</name><pose>1.2500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p6</name><pose>1.5000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p7</name><pose>1.7500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p8</name><pose>2.0000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p9</name><pose>2.2500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p10</name><pose>2.5000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p11</name><pose>2.7500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p12</name><pose>3.0000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p13</name><pose>3.2500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p14</name><pose>3.5000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p15</name><pose>3.7500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p16</name><pose>4.0000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p17</name><pose>4.2500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rA_p18</name><pose>4.5000 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rA_p19</name><pose>4.7500 14.2500 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <!-- Row B: Y=14.5000 (staggered +0.125) -->
+    <include><name>rice_g19rB_p0</name><pose>0.1250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p1</name><pose>0.3750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p2</name><pose>0.6250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p3</name><pose>0.8750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p4</name><pose>1.1250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p5</name><pose>1.3750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p6</name><pose>1.6250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p7</name><pose>1.8750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p8</name><pose>2.1250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p9</name><pose>2.3750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p10</name><pose>2.6250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p11</name><pose>2.8750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p12</name><pose>3.1250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p13</name><pose>3.3750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p14</name><pose>3.6250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p15</name><pose>3.8750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p16</name><pose>4.1250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p17</name><pose>4.3750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+    <include><name>rice_g19rB_p18</name><pose>4.6250 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri></include>
+    <include><name>rice_g19rB_p19</name><pose>4.8750 14.5000 0.3 0 0 0</pose><uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_02/model.sdf</uri></include>
+
+
+  </world>
+</sdf>

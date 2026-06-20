@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- Include mud_box model using absolute path -->
+    <include>
+      <pose>0 0 0 0 0 0</pose>
+      <uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/mud_box/mud_box.sdf</uri>
+    </include>
+    
+    <!-- Include maize model using absolute path -->
+    <include>
+      <pose>0 0 0 0 0 0</pose>
+      <uri>/home/ubuntu/github/Omni-Directional-Mobile-Robot/src/robotpadi_description/models/maize_01/model.sdf</uri>
+    </include>
+  </world>
+</sdf>

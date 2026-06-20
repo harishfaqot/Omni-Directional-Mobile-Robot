@@ -9,6 +9,7 @@ robotpadi_controller/swerve_nav_goal.py
 robotpadi_controller.egg-info/PKG-INFO
 robotpadi_controller.egg-info/SOURCES.txt
 robotpadi_controller.egg-info/dependency_links.txt
+robotpadi_controller.egg-info/entry_points.txt
 robotpadi_controller.egg-info/requires.txt
 robotpadi_controller.egg-info/top_level.txt
 robotpadi_controller.egg-info/zip-safe

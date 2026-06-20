@@ -1,0 +1,13 @@
+running develop
+running egg_info
+writing robotpadi_description.egg-info/PKG-INFO
+writing dependency_links to robotpadi_description.egg-info/dependency_links.txt
+writing requirements to robotpadi_description.egg-info/requires.txt
+writing top-level names to robotpadi_description.egg-info/top_level.txt
+reading manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+writing manifest file 'robotpadi_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_description/lib/python3.12/site-packages/robotpadi-description.egg-link (link to .)
+
+Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description
+running symlink_data

@@ -1,0 +1,17 @@
+[2.035s] Invoking command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build --no-deps symlink_data
+[2.522s] running develop
+[2.815s] running egg_info
+[2.837s] writing robotpadi_controller.egg-info/PKG-INFO
+[2.838s] writing dependency_links to robotpadi_controller.egg-info/dependency_links.txt
+[2.839s] writing entry points to robotpadi_controller.egg-info/entry_points.txt
+[2.839s] writing requirements to robotpadi_controller.egg-info/requires.txt
+[2.840s] writing top-level names to robotpadi_controller.egg-info/top_level.txt
+[2.894s] reading manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+[2.895s] writing manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+[2.922s] running build_ext
+[2.923s] Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi-controller.egg-link (link to .)
+[2.924s] Installing swerve_nav_goal script to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/robotpadi_controller
+[2.926s] 
+[2.926s] Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller
+[2.926s] running symlink_data
+[2.995s] Invoked command in '/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/build --no-deps symlink_data

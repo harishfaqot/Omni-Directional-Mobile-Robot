@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing robotpadi_controller.egg-info/PKG-INFO
+writing dependency_links to robotpadi_controller.egg-info/dependency_links.txt
+writing entry points to robotpadi_controller.egg-info/entry_points.txt
+writing requirements to robotpadi_controller.egg-info/requires.txt
+writing top-level names to robotpadi_controller.egg-info/top_level.txt
+reading manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+writing manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi-controller.egg-link (link to .)
+Installing swerve_nav_goal script to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/robotpadi_controller
+
+Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller
+running symlink_data
