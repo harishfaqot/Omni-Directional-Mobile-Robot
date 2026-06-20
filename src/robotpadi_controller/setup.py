@@ -1,3 +1,6 @@
+from glob import glob
+import os
+
 from setuptools import find_packages, setup
 
 package_name = 'robotpadi_controller'
@@ -10,6 +13,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name, ['robotpadi_controller/robotpadi_plotjuggler_layout.xml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -25,6 +29,7 @@ setup(
     entry_points={
     'console_scripts': [
         'swerve_nav_goal = robotpadi_controller.swerve_nav_goal:main',
+        'robot_state_monitor = robotpadi_controller.robot_state_monitor:main',
         # other nodes...
     ],
 },

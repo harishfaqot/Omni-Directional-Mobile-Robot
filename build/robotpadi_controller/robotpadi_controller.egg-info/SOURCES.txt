@@ -4,6 +4,8 @@ setup.py
 resource/robotpadi_controller
 robotpadi_controller/__init__.py
 robotpadi_controller/gui.py
+robotpadi_controller/robot_state_monitor.py
+robotpadi_controller/robotpadi_plotjuggler_layout.xml
 robotpadi_controller/swerve_controller.py
 robotpadi_controller/swerve_nav_goal.py
 robotpadi_controller.egg-info/PKG-INFO

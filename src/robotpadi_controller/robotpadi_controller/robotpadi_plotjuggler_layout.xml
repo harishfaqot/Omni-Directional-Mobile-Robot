@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root>
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab tab_name="Full Robot (Vx Vy Omega)" containers="1">
+   <Container>
+    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+     <DockArea name="linear_velocity">
+      <plot mode="TimeSeries" style="Lines">
+       <range bottom="-1.000000" top="1.000000" right="60.000000" left="0.000000"/>
+       <limitY/>
+       <curve color="#1f77b4" name="/robot_state/vx/data"/>
+       <curve color="#d62728" name="/robot_state/vy/data"/>
+      </plot>
+     </DockArea>
+     <DockArea name="angular_velocity">
+      <plot mode="TimeSeries" style="Lines">
+       <range bottom="-1.000000" top="1.000000" right="60.000000" left="0.000000"/>
+       <limitY/>
+       <curve color="#2ca02c" name="/robot_state/omega/data"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Kecepatan Motor Penggerak (Omega1-4)" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="wheel_speed">
+      <plot mode="TimeSeries" style="Lines">
+       <range bottom="-1.000000" top="1.000000" right="60.000000" left="0.000000"/>
+       <limitY/>
+       <curve color="#1f77b4" name="/motor_state/omega1/data"/>
+       <curve color="#d62728" name="/motor_state/omega2/data"/>
+       <curve color="#2ca02c" name="/motor_state/omega3/data"/>
+       <curve color="#9467bd" name="/motor_state/omega4/data"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab tab_name="Sudut Motor Swerve (Theta1-4)" containers="1">
+   <Container>
+    <DockSplitter count="1" sizes="1" orientation="-">
+     <DockArea name="steering_angle">
+      <plot mode="TimeSeries" style="Lines">
+       <range bottom="-3.140000" top="3.140000" right="60.000000" left="0.000000"/>
+       <limitY/>
+       <curve color="#1f77b4" name="/swerve_state/theta1/data"/>
+       <curve color="#d62728" name="/swerve_state/theta2/data"/>
+       <curve color="#2ca02c" name="/swerve_state/theta3/data"/>
+       <curve color="#9467bd" name="/swerve_state/theta4/data"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="0"/>
+ </tabbed_widget>
+ <use_relative_time_offset enabled="1"/>
+ <!-- - - - - - - - - - - - - - -  -->
+ <!-- - - - - - - - - - - - - - -  -->
+ <Plugins>
+  <plugin ID="DataLoad CSV">
+   <parameters time_axis="" delimiter="0"/>
+  </plugin>
+  <plugin ID="ROS2 Topic Subscriber"/>
+ </Plugins>
+ <!-- - - - - - - - - - - - - - -  -->
+ <previouslyLoaded_Datafiles/>
+ <previouslyLoaded_Streamer name="ROS2 Topic Subscriber"/>
+ <!-- - - - - - - - - - - - - - -  -->
+ <customMathEquations/>
+ <snippets/>
+ <!-- - - - - - - - - - - - - - -  -->
+</root>

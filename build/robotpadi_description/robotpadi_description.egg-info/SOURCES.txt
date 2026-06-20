@@ -82,7 +82,6 @@ urdf/robotpadi.xacro
 worlds/farm.sdf
 worlds/generate_world.py
 worlds/generated.world
-worlds/optimize.py
 worlds/paddy.world
 worlds/paddy_generated.world
 worlds/worlds.sdf

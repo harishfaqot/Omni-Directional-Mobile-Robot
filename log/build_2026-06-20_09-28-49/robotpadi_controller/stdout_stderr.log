@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating robotpadi_controller.egg-info
+writing robotpadi_controller.egg-info/PKG-INFO
+writing dependency_links to robotpadi_controller.egg-info/dependency_links.txt
+writing entry points to robotpadi_controller.egg-info/entry_points.txt
+writing requirements to robotpadi_controller.egg-info/requires.txt
+writing top-level names to robotpadi_controller.egg-info/top_level.txt
+writing manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+reading manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+writing manifest file 'robotpadi_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/python3.12/site-packages/robotpadi-controller.egg-link (link to .)
+Installing robot_state_monitor script to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/robotpadi_controller
+Installing swerve_nav_goal script to /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/lib/robotpadi_controller
+
+Installed /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller
+running symlink_data
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index
+creating /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index/packages
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/resource/robotpadi_controller -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/ament_index/resource_index/packages
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/package.xml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/robotpadi_controller
+symbolically linking /home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_controller/robotpadi_controller/robotpadi_plotjuggler_layout.xml -> /home/ubuntu/github/Omni-Directional-Mobile-Robot/install/robotpadi_controller/share/robotpadi_controller

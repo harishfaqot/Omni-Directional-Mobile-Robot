@@ -107,7 +107,7 @@ def generate_launch_description():
     )
 
     rviz_node = TimerAction(
-        period=12.0,
+        period=6.0,
         actions=[Node(
             package='rviz2',
             executable='rviz2',
@@ -142,17 +142,13 @@ def generate_launch_description():
         'robotpadi_plotjuggler_layout.xml'
     )
 
-    plotjuggler = TimerAction(
-    period=20.0,
-    actions=[
-        Node(
-            package='plotjuggler',
-            executable='plotjuggler',
-            arguments=['-l', layout_file],
-            output='screen'
-        )
-    ]
-)
+    plotjuggler = ExecuteProcess(
+        cmd=[
+            'ros2', 'run', 'plotjuggler', 'plotjuggler',
+            '-l', layout_file
+        ],
+        output='screen'
+    )
 
     return LaunchDescription([
         set_gz_resource_path,       # <-- must come first, before gazebo starts

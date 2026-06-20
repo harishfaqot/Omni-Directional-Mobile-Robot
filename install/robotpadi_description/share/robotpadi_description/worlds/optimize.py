@@ -1,1 +1,0 @@
-/home/ubuntu/github/Omni-Directional-Mobile-Robot/build/robotpadi_description/worlds/optimize.py

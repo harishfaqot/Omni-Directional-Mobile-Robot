@@ -1,2 +1,3 @@
 [console_scripts]
+robot_state_monitor = robotpadi_controller.robot_state_monitor:main
 swerve_nav_goal = robotpadi_controller.swerve_nav_goal:main
